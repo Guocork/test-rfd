@@ -13,6 +13,7 @@ fn main() {
         let mut file_path = PathBuf::from(path);
         file_path.push("example.txt") ;
 
+        // 这里creat 如果之前这个文件已经存在 那么将会截断（覆盖）原来的内容，重新写入
         match File::create(&file_path) {
             Ok(mut file) => {
                 if let Err(e) = file.write_all(b"Hello, world!") {
